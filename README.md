@@ -28,7 +28,7 @@ This is a Python program for scheduling mobile car wash services.
    ```
 
 ## Files
-- `main.py`: Main logic
+- `main_GUI.py`: Main logic
 - `helper.py`: Validation and file-saving
 - `date_picker.py`: GUI calendar picker
 - `order_summary.txt`: Output file
