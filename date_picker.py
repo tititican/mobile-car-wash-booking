@@ -1,8 +1,9 @@
+# import necessary libraries
 from tkinter import Tk, Label, Button
 from tkcalendar import Calendar
 
 selected_date = None
-
+# Define a function to pick a date using tkcalendar
 def pick_date():
     def get_date():
         global selected_date

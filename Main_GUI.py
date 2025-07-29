@@ -1,8 +1,10 @@
+# import necessary libraries user-defined modules and third-party modules
 import tkinter as tk
 from tkinter import messagebox
 from tkcalendar import Calendar
 from helper import validate_date, save_order
-
+# Define Customer, services and Oedr classes, 
+# especially for GUI, app classes is needed to create a GUI application.
 class Customer:
     def __init__(self, name, car_model):
         self.name = name
@@ -48,7 +50,7 @@ class App:
 
         tk.Label(root, text="Car Model:").grid(row=1, column=0, sticky='e')
         tk.Entry(root, textvariable=self.car_model_var).grid(row=1, column=1)
-
+        # using dictionary data type to display Services for selection
         tk.Label(root, text="Choose Service:").grid(row=2, column=0, sticky='ne')
         for i, (service, price) in enumerate({
             "Basic Wash": 25, "Deluxe Wash": 40, "Premium Detail": 60
@@ -61,21 +63,21 @@ class App:
         self.calendar.grid(row=5, column=1)
 
         tk.Button(root, text="Submit Order", command=self.submit_order).grid(row=6, column=0, columnspan=2, pady=10)
-
+    # define a method to submit the order
     def submit_order(self):
         name = self.name_var.get()
         car_model = self.car_model_var.get()
         service = self.service_var.get()
         date = self.calendar.get_date()
-
+        # Validate input fields
         if not name or not car_model:
             messagebox.showerror("Error", "Please enter all fields.")
             return
-
+        # Create Customer and Order objects
         customer = Customer(name, car_model)
         price = {"Basic Wash": 25, "Deluxe Wash": 40, "Premium Detail": 60}[service]
         order = Order(service, price, date, customer)
-
+        # Validate date and save order
         if not validate_date(date):
             messagebox.showerror("Invalid Date", "Choose a date within 1 year from today.")
             return
