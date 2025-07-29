@@ -24,7 +24,7 @@ This is a Python program for scheduling mobile car wash services.
    ```
 3. Run the program:
    ```
-   python main.py
+   python main_GUI.py
    ```
 
 ## Files
